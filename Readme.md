@@ -30,5 +30,5 @@ $ pip install -r requirements.txt
 
 ## Usage
 ```
-$ python app/tracker.py
+$ python tracker.py --help
 ```

@@ -6,6 +6,7 @@ from bs4 import BeautifulSoup
 import random
 import utils
 from datetime import datetime
+import argparse
 
 class RWCTracker:
     def __init__(self, testing=True):
@@ -200,7 +201,12 @@ class RWCTracker:
         self.driver.close()
         
         
-        
+parser = argparse.ArgumentParser()
+  
+parser.add_argument("-t", "--test", help="uses the downloaded HTML files rather than the RWC website", action="store_true")
+parser.parse_args() 
+args = parser.parse_args()
 
-r = RWCTracker(testing=True)
-r.traverse_ticket_pages()
+if __name__ == "__main__":
+    r = RWCTracker(testing=args.test)
+    r.traverse_ticket_pages()
